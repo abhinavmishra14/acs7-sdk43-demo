@@ -46,7 +46,7 @@
 							<configuration>
 								<outputDirectory>${project.build.directory}/extensions</outputDirectory>
 								<includeScope>runtime</includeScope>
-								<!-- [Duplicate module.properties issue when both jar and amp artifacts are generated] add include types -->
+								<!-- [Duplicate module.properties issue when both jar and amp artifacts are generated] add include types. To include jar and amp both use <includeTypes>amp,jar</includeTypes> -->
 								<includeTypes>amp</includeTypes>
 								<!-- IMPORTANT: if using amp dependencies only, add <includeTypes>amp</includeTypes> -->
 							</configuration>

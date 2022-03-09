@@ -29,10 +29,36 @@
 
     <build>
         <plugins>
-            <plugin>
+			<!-- [Duplicate module.properties issue when both jar and amp artifacts are generated] Added plugin to filter and copy. This plugin must be added before maven-assembly-plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>3.2.0</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+						<configuration>
+							<filters>
+								<filter>
+									<artifact>*:*</artifact>
+									<excludes>
+										<exclude>**/alfresco/module/${project.artifactId}/module.properties</exclude>
+								   </excludes>
+								</filter>
+							</filters>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			
+			<plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
             </plugin>
+
         </plugins>
     </build>
 

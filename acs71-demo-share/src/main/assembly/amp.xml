@@ -60,6 +60,9 @@
     <dependencySets>
         <dependencySet>
             <outputDirectory>lib</outputDirectory>
+			<!--<excludes>
+				<exclude>com.demo:${project.artifactId}</exclude>
+			</excludes>-->
         </dependencySet>
     </dependencySets>
 

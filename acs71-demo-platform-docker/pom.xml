@@ -21,6 +21,7 @@
             <groupId>com.demo</groupId>
             <artifactId>acs71-demo-platform</artifactId>
             <version>1.0-SNAPSHOT</version>
+			<type>amp</type>
         </dependency>
         <dependency>
             <groupId>com.demo</groupId>
@@ -30,7 +31,7 @@
             <classifier>tests</classifier>
         </dependency>
 		
-	    <!-- Added activemq-all dependency here and commented in parent pom (acs71-demo/pom.xml) --> 
+		<!-- Added activemq-all dependency here and commented in parent pom (acs71-demo/pom.xml) --> 
 		<dependency>
 			<groupId>org.apache.activemq</groupId>
 			<artifactId>activemq-all</artifactId>
@@ -78,6 +79,8 @@
                         <configuration>
                             <outputDirectory>${project.build.directory}/extensions</outputDirectory>
                             <includeScope>runtime</includeScope>
+							<!-- [Duplicate module.properties issue when both jar and amp artifacts are generated] add include types -->
+							<includeTypes>amp</includeTypes>
                             <!-- IMPORTANT: if using amp dependencies only, add <includeTypes>amp</includeTypes> -->
                         </configuration>
                     </execution>

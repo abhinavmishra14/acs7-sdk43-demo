@@ -21,6 +21,7 @@
             <groupId>com.demo</groupId>
             <artifactId>acs71-demo-share</artifactId>
             <version>1.0-SNAPSHOT</version>
+			<type>amp</type>
         </dependency>
     </dependencies>
 
@@ -40,6 +41,8 @@
                         <configuration>
                             <outputDirectory>${project.build.directory}/extensions</outputDirectory>
                             <includeScope>runtime</includeScope>
+							<!-- [Duplicate module.properties issue when both jar and amp artifacts are generated] add include types -->
+							<includeTypes>amp</includeTypes>
                             <!-- IMPORTANT: if using amp dependencies only, add <includeTypes>amp</includeTypes> -->
                         </configuration>
                     </execution>
